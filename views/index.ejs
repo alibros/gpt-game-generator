@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Game Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      line-height: 1.6;
+      background-color: color(srgb 0.098 0.098 0.0981);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      text-align: center;
+      margin: 2rem 0;
+      padding-top: 1rem;
+      color: color(display-p3 0.302 0.6667 0.9098);
+    }
+
+    #game-form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    #prompt {
+      width: 300px;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    #game-form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    #game-form button:hover {
+      background-color: #45a049;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    #arcade-machine {
+      position: relative;
+      width: 900px;
+      height: 800px;
+      background-image: url('/arcade.png');
+      background-size: cover;
+      margin: 0 auto;
+    }
+
+    #game-canvas {
+      position: absolute;
+      top: 177px;
+      left: 226px;
+      width: 546px;
+      height: 412px;
+      border: none;
+      background-color: darkslategrey;
+    }
+
+    #loading-spinner {
+      display: none;
+      position: absolute;
+      top: 250px;
+      left: 312px;
+      width: 546px;
+      height: 412px;
+    }
+
+    #game-instructions {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
+      color: color(display-p3 0.302 0.6667 0.9098);
+    }
+
+    .arcade-btn {
+      display: none;
+      position: absolute;
+      top: 524px;
+      left: 442px;
+      background-color: rgb(147, 19, 19);
+      padding: 15px 20px;
+      border-radius: 6px;
+      box-shadow: 0 5px 0 #500606;
+      text-transform: uppercase;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .arcade-btn:active {
+      box-shadow: none;
+      top: 5px;
+    }
+
+  </style>
+  <script src="/main.js" defer></script>
+</head>
+<body>
+  <h1>GPT Game Generator</h1>
+  <form id="game-form">
+    <input type="text" id="prompt" placeholder="Enter game idea" required>
+    <button type="submit">Generate Game</button>
+  </form>
+
+  <div id="arcade-machine">
+    <canvas id="game-canvas"></canvas>
+    <div id="loading-spinner">
+      <img src="/loading.gif" alt="Loading...">
+    </div>
+    <button id="restart-button" class="arcade-btn">Restart</button>
+  </div>
+
+  <div id="game-instructions"></div>
+  <!-- <script src="/game.js"></script> -->
+</body>
+</html>
+
